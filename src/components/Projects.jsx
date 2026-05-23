@@ -1,6 +1,7 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import portfoliof from "../assets/portfolio-preview.png";
+import portfoliof from "../assets/prj-1.png";
+import macbook from "../assets/macbook-frame.png";
 
 const Projects = () => {
   const [active, setActive] = useState(null);
@@ -83,9 +84,35 @@ const Projects = () => {
         </div>
 
         {/* right */}
-        <div className="w-50% ">
-          <img className="w-140 h-90" src={portfoliof} alt="" />
-        </div>
+        <div className="w-[50%] flex justify-center">
+
+          <div className="relative w-[90%] max-w-200 transition-all ease-in-out duration-300 scale-95 hover:scale-100">
+
+            {/* PROJECT SCREENSHOT */}
+            <img
+              src={portfoliof}
+              alt=""
+              className="
+                absolute
+                top-[20%]
+                left-[15%]
+                w-[70%]
+                h-[42%]
+                object-fit
+                rounded-md
+              "
+            />
+
+            {/* LAPTOP FRAME */}
+            <img
+              src={macbook}
+              alt=""
+              className="relative z-10 w-full h-auto"
+            />
+
+          </div>
+
+        </div>        
         </div>
     </motion.section>
   );
