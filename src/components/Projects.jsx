@@ -2,6 +2,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import portfoliof from "../assets/prj-1.png";
 import macbook from "../assets/macbook-frame.png";
+import realestate from "../assets/prj-2.png";
 
 const Projects = () => {
   const [active, setActive] = useState(null);
@@ -10,7 +11,6 @@ const Projects = () => {
 
   const isInView = useInView(ref, { margin: "-100px" });
 
-  // scroll-based animation
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "start start"],
@@ -19,7 +19,27 @@ const Projects = () => {
   const radius = useTransform(scrollYProgress, [0.9, 1], [40, 0]);
   const scale = useTransform(scrollYProgress, [0.9, 1], [0.98, 1]);
 
-  const shadowOpacity = useTransform(scrollYProgress, [0.9, 1], [0.4, 0.2]);
+  const projectsData = [
+  {
+    title: "PORTFOLIO WEBSITE",
+    description:
+      "Minimal personal portfolio focused on typography, motion, and clean interactions.",
+    tech: ["REACT", "TAILWIND CSS", "FRAMER MOTION"],
+    image: portfoliof,
+    live: "#",
+    github: "#",
+  },
+
+  {
+    title: "REAL ESTATE WEBSITE",
+    description:
+      "Modern responsive real estate landing page with clean layouts and smooth animations.",
+    tech: ["REACT", "TAILWIND CSS"],
+    image: realestate,
+    live: "#",
+    github: "#",
+  },
+];
 
   return (
     <motion.section
@@ -34,87 +54,174 @@ const Projects = () => {
         borderTopLeftRadius: radius,
         borderTopRightRadius: radius,
         scale,
-      }}      
-      className="bg-neutral-950 relative min-h-screen z-20"
+      }}
+      className="bg-neutral-950 relative z-20"
     >
-        <p className="text-white flex justify-center text-5xl bebas-neue-regular pt-8 tracking-wider">projects</p>
+      {/* SECTION TITLE */}
+      <p className="text-white flex justify-center text-5xl bebas-neue-regular pt-12 pb-30 tracking-[0.2em]">
+        PROJECTS
+      </p>
 
-        <div className="flex justify-center items-center h-screen px-10">
-        {/* left */}
-        <div className="text-white w-60% ">
-          <p className="bebas-neue-regular text-5xl border-b-2 border-white/60 w-full pb-4">portfolio website</p>
-          <p className="font-semibold text-xl py-4">personal porfolio built with react and tailwind css and framermotion</p>
-          <div className="flex gap-4 py-4">
-            <p className="bg-linear-to-r from-gray-500 to-white/80 text-black bebas-neue-regular text-center rounded-2xl px-4 pt-1">react</p>
-            <p className="bg-linear-to-r from-gray-500 to-white/80 text-black bebas-neue-regular text-center rounded-2xl px-4 pt-1">tailwind css</p>
-            <p className="bg-linear-to-r from-gray-500 to-white/80 text-black bebas-neue-regular text-center rounded-2xl px-4 pt-1">framer motion</p>
+      {/* CONTENT */}
+      <div className="flex flex-col ">
+
+        {projectsData.map((project, index) => (
+
+          <div
+            key={index}
+            className={`
+              flex
+              items-center
+              justify-center
+              gap-20
+              px-10
+
+              ${index % 2 !== 0 ? "flex-row-reverse" : ""}
+            `}
+          >
+
+            {/* TEXT SIDE */}
+            <div className="text-white w-[50%] px-8">
+
+              <p
+                className="
+                  bebas-neue-regular
+                  text-6xl
+                  tracking-wide
+                  border-b
+                  border-white/20
+                  w-full
+                  pb-6
+                "
+              >
+                {project.title}
+              </p>
+
+              <p
+                className="
+                  text-white/70
+                  text-lg
+                  leading-relaxed
+                  py-6
+                  max-w-150
+                "
+              >
+                {project.description}
+              </p>
+
+              {/* TECH STACK */}
+              <div className="flex gap-4 py-4 flex-wrap">
+
+                {project.tech.map((item, i) => (
+                  <p
+                    key={i}
+                    className="
+                      bg-white/10
+                      border
+                      border-white/10
+                      text-white/80
+                      bebas-neue-regular
+                      rounded-2xl
+                      px-4
+                      py-1
+                      tracking-wide
+                    "
+                  >
+                    {item}
+                  </p>
+                ))}
+
+              </div>
+
+              {/* BUTTONS */}
+              <div className="py-8 flex items-center gap-4">
+
+                <button
+                  onMouseEnter={() => setActive(`work-${index}`)}
+                  onMouseLeave={() => setActive(null)}
+                  className={`
+                    px-8 py-3 rounded-xl font-semibold
+                    transition-all duration-300 border
+
+                    ${
+                      active === `work-${index}`
+                        ? "bg-white text-black border-white scale-[1.03]"
+                        : active === `contact-${index}`
+                        ? "bg-transparent text-white/70 border-white/30"
+                        : "bg-white text-black border-white"
+                    }
+                  `}
+                >
+                  Live Demo
+                </button>
+
+                <button
+                  onMouseEnter={() => setActive(`contact-${index}`)}
+                  onMouseLeave={() => setActive(null)}
+                  className={`
+                    px-8 py-3 rounded-xl font-semibold
+                    transition-all duration-300 border
+
+                    ${
+                      active === `contact-${index}`
+                        ? "bg-white text-black border-white scale-[1.03]"
+                        : active === `work-${index}`
+                        ? "bg-transparent text-white/70 border-white/30"
+                        : "bg-transparent text-white/70 border-white/30"
+                    }
+                  `}
+                >
+                  View Code
+                </button>
+
+              </div>
+            </div>
+
+            {/* IMAGE SIDE */}
+            <div className="w-[50%] flex justify-center">
+
+              <div
+                className="
+                  relative
+                  w-[90%]
+                  max-w-200
+                  transition-all
+                  ease-in-out
+                  duration-500
+                  scale-95
+                  hover:scale-100
+                "
+              >
+
+                <img
+                  src={project.image}
+                  alt=""
+                  className="
+                    absolute
+                    top-[20%]
+                    left-[15%]
+                    w-[70%]
+                    h-[42%]
+                    object-fit
+                    rounded-md
+                  "
+                />
+
+                <img
+                  src={macbook}
+                  alt=""
+                  className="relative z-10 w-full h-auto"
+                />
+
+              </div>
+
+            </div>
+
           </div>
-          <div className="py-4">
-          <button
-          onMouseEnter={() => setActive("work")}
-          onMouseLeave={() => setActive(null)}
-          className={`
-            lg:px-8 px-4 md:py-2 md:text-base text-sm py-1 rounded-lg mr-6 font-semibold border-2 transition-all duration-300 active:scale-95
-            ${
-              active === "work"
-                ? "bg-white/70 text-black  scale-105 shadow-md" 
-                : active === "contact"
-                ? "bg-white text-black border-black"
-                : "bg-white text-black border-black" 
-            }
-          `}>
-          live demo
-        </button>            
-        <button
-         onMouseEnter={() => setActive("contact")}
-          onMouseLeave={() => setActive(null)}
-          className={`
-            md:px-8 px-6 md:py-2 py-0 md:text-base text-[12px] rounded-lg md:font-semibold font-normal border-2 transition-all duration-300 active:scale-100
-            ${
-              active === "contact"
-                ? "bg-white/70 text-black border-black scale-105 shadow-md" 
-                : active === "work"
-                ? "bg-white text-black border-black" 
-                : "bg-white/70 text-black border-black" 
-            }
-          `}>
-            view code
-            </button>
-          </div>
-        </div>
+        ))}
 
-        {/* right */}
-        <div className="w-[50%] flex justify-center">
-
-          <div className="relative w-[90%] max-w-200 transition-all ease-in-out duration-300 scale-95 hover:scale-100">
-
-            {/* PROJECT SCREENSHOT */}
-            <img
-              src={portfoliof}
-              alt=""
-              className="
-                absolute
-                top-[20%]
-                left-[15%]
-                w-[70%]
-                h-[42%]
-                object-fit
-                rounded-md
-              "
-            />
-
-            {/* LAPTOP FRAME */}
-            <img
-              src={macbook}
-              alt=""
-              className="relative z-10 w-full h-auto"
-            />
-
-          </div>
-
-        </div>        
-        </div>
-    </motion.section>
+      </div>    
+      </motion.section>
   );
 };
 
