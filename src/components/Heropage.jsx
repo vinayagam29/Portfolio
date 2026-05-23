@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import profile from "../assets/reference.webp";
   
 
 const Heropage = () => {
@@ -58,7 +58,7 @@ const Heropage = () => {
 
       </div>
       <div className="flex lg:items-center md:justify-end lg:justify-center justify-center">
-        <img className='absolute z-1 object-cover lg:w-105 md:w-80 w-50 object-center lg:top-45 md:top-40 md:pt-0 pt-10 opacity-92' src="src/assets/reference.webp" alt="" />
+        <img className='absolute z-1 object-cover lg:w-105 md:w-80 w-50 object-center lg:top-45 md:top-40 md:pt-0 pt-10 opacity-92' src={profile} alt="" />
       </div>
 
 

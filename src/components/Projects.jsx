@@ -1,5 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import portfoliof from "../assets/portfolio-preview.png";
 
 const Projects = () => {
   const [active, setActive] = useState(null);
@@ -83,7 +84,7 @@ const Projects = () => {
 
         {/* right */}
         <div className="w-50% ">
-          <img className="w-140 h-90" src="src/assets/portfolio-preview.png" alt="" />
+          <img className="w-140 h-90" src={portfoliof} alt="" />
         </div>
         </div>
     </motion.section>
