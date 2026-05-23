@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+}
+
+/* Outline text */
+.stroke-text {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+}
+
+/* Mask effect */
+.masked-image {
+  -webkit-mask-image: text;
+  mask-image: text;
+}
+
