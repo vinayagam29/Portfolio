@@ -39,6 +39,16 @@ const Projects = () => {
     live: "#",
     github: "#",
   },
+
+  {
+    title: "REAL ESTATE WEBSITE",
+    description:
+      "Modern responsive real estate landing page with clean layouts and smooth animations.",
+    tech: ["REACT", "TAILWIND CSS"],
+    image: realestate,
+    live: "#",
+    github: "#",
+  },
 ];
 
   return (
@@ -71,22 +81,28 @@ const Projects = () => {
             key={index}
             className={`
               flex
+              md:flex-row
+              flex-col
               items-center
               justify-center
-              gap-20
-              px-10
-
-              ${index % 2 !== 0 ? "flex-row-reverse" : ""}
+              lg:gap-20 md:gap-10 gap-0
+              md:px-10 px-8
+              py-10
+              lg:border-0
+              border-b
+              border-gray-300
+              ${index % 2 !== 0 ? "md:flex-row-reverse flex-col" : ""}
             `}
           >
 
             {/* TEXT SIDE */}
-            <div className="text-white w-[50%] px-8">
+            <div className="text-white md:w-[50%] w-full ">
 
               <p
                 className="
                   bebas-neue-regular
-                  text-6xl
+                  lg:text-6xl md:text-4xl text-4xl 
+                  md:text-start text-center
                   tracking-wide
                   border-b
                   border-white/20
@@ -100,10 +116,12 @@ const Projects = () => {
               <p
                 className="
                   text-white/70
-                  text-lg
+                  md:text-lg
+                  text-sm
                   leading-relaxed
                   py-6
-                  max-w-150
+                  md:max-w-150
+                  w-full
                 "
               >
                 {project.description}
@@ -178,7 +196,7 @@ const Projects = () => {
             </div>
 
             {/* IMAGE SIDE */}
-            <div className="w-[50%] flex justify-center">
+            <div className="md:w-[50%] w-full flex justify-center">
 
               <div
                 className="
@@ -188,7 +206,8 @@ const Projects = () => {
                   transition-all
                   ease-in-out
                   duration-500
-                  scale-95
+                  lg:scale-95
+                  md:scale-105
                   hover:scale-100
                 "
               >
@@ -201,7 +220,8 @@ const Projects = () => {
                     top-[20%]
                     left-[15%]
                     w-[70%]
-                    h-[42%]
+                    md:h-[42%]
+                    h-40
                     object-fit
                     rounded-md
                   "
@@ -210,7 +230,7 @@ const Projects = () => {
                 <img
                   src={macbook}
                   alt=""
-                  className="relative z-10 w-full h-auto"
+                  className="relative z-10 w-full h-auto "
                 />
 
               </div>
