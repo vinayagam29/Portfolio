@@ -55,7 +55,9 @@ const Projects = () => {
     <motion.section
       ref={ref}
       initial={{ y: 120, opacity: 0 }}
-      animate={isInView ? { y: 0, opacity: 1 } : {}}
+      initial={{ y: 120, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
       transition={{
         duration: 0.7,
         ease: [0.22, 1, 0.36, 1],
@@ -65,7 +67,7 @@ const Projects = () => {
         borderTopRightRadius: radius,
         scale,
       }}
-      className="bg-neutral-950 relative z-20"
+      className="bg-neutral-950 relative overflow-hidden"
     >
       {/* SECTION TITLE */}
       <p className="text-white flex justify-center text-5xl bebas-neue-regular pt-12 pb-30 tracking-[0.2em]">
