@@ -57,35 +57,23 @@ function Footer() {
 
 
           {/* Back top */}
-          <a
-            href="#"
-            className="
-              group
-              flex items-center gap-3
-              text-sm
-              text-neutral-400
-              hover:text-white
-              transition
-            "
+          <button
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+            className="group flex items-center gap-3 text-neutral-400 hover:text-white transition"
           >
-            <span>
-              Back to top
-            </span>
-
-            <span
-              className="
-                w-10 h-10
-                rounded-full
-                border border-neutral-700
-                flex items-center justify-center
-                group-hover:-translate-y-1
-                transition
-              "
-            >
+            <span className="w-12 h-12 rounded-full border border-neutral-700 flex items-center justify-center text-xl group-hover:-translate-y-1 transition">
               ↑
             </span>
 
-          </a>
+            <span className="text-sm uppercase tracking-widest">
+              Back to top
+            </span>
+          </button>
 
         </div>
 
