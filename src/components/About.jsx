@@ -37,7 +37,7 @@ function About() {
         </p>
       </div>
 
-      <div className="flex md:flex-row flex-col flex-wrap gap-20 items-start">
+      <div className="flex lg:flex-row flex-col gap-20 items-start">
 
         {/* LEFT */}
         <motion.div
