@@ -28,7 +28,7 @@ function About() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="bg-neutral-950 text-white py-32 px-6 md:px-10 relative"
+      className="bg-neutral-950 text-white py-32 px-2 md:px-10 relative"
     >
       {/* Section Label */}
       <div className="mb-16">
@@ -58,15 +58,15 @@ function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
-          className="max-w-xl"
+          className="max-w-xl "
         >
-          <p className="text-white/70 text-lg leading-relaxed">
+          <p className="text-white/70 md:text-lg text-[15px] leading-relaxed">
             I'm Vinayagam, a frontend developer passionate about creating
             modern, responsive websites with thoughtful design, smooth
             interactions, and clean, maintainable code.
           </p>
 
-          <p className="text-white/70 text-lg leading-relaxed mt-6">
+          <p className="text-white/70 md:text-lg text-[15px] leading-relaxed mt-6">
             I enjoy transforming ideas into polished digital experiences
             using React, Tailwind CSS, and Framer Motion, while continually
             refining both my design sense and development workflow.
